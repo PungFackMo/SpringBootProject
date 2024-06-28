@@ -39,7 +39,7 @@ public class BoardService {
 		return bRepo.findById(id).get();
 	}
 	
-	//id 값을 이용하여 Comment 삭제
+	//id 값을 이용하여 Board 삭제
 	public void deleteBoard(Integer id) {
 		bRepo.deleteById(id);
 	}

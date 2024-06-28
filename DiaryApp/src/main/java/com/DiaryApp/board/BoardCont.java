@@ -69,7 +69,6 @@ public class BoardCont {
 	@GetMapping("/board-update")
 	public String newBoard(Model model, String keyword) {
 		model.addAttribute("board", new BoardDto());
-		model.addAttribute("keyword", keyword);
 		return "board-update";
 	}
 	
@@ -113,7 +112,7 @@ public class BoardCont {
 	        System.out.println(message);
 	        return showMessageAndRedirect(message, model); // 유효성 검사 실패
 	    }
-	    if (createdDateTime!=null) {
+	    if (createdDateTime==null) {
 	    	bDto.setCreatedDateTime(LocalDateTime.now());
 	    }
 	    bDto.setUpdatedDateTime(LocalDateTime.now());
@@ -227,7 +226,8 @@ public class BoardCont {
 	
 	//comment 추가하기
 	@PostMapping("/put/comment")
-	public String putComment(@RequestParam("board") Integer boardId, @RequestParam("comment") String comment) {
+	public String putComment(@RequestParam("board") Integer boardId,
+							@RequestParam("comment") String comment) {
 		BoardDto board=bService.getBoard(boardId);
 		CommentDto cDto=new CommentDto();
 		cDto.setBoard(board);

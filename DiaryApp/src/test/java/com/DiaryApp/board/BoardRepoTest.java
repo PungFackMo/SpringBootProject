@@ -21,7 +21,7 @@ class BoardRepoTest {
 			bDto.setContent("이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.이것은 테스트 글입니다.");
 			bDto.setUserName("김e바");
 			bDto.setUserPW("121212");
-			bDto.setCreatedDateTime(LocalDateTime.now());
+			bDto.setCreatedDateTime(LocalDateTime.now().minusDays(125).plusDays(i));
 			bDto.setUpdatedDateTime(LocalDateTime.now());
 			bRepo.save(bDto);
 			i++;
@@ -31,7 +31,7 @@ class BoardRepoTest {
 			bDto2.setContent("첫 게시글 내용");
 			bDto2.setUserName("김장바");
 			bDto2.setUserPW("121212");
-			bDto2.setCreatedDateTime(LocalDateTime.now());
+			bDto2.setCreatedDateTime(LocalDateTime.now().minusDays(125).plusDays(i));
 			bDto2.setUpdatedDateTime(LocalDateTime.now());
 			bRepo.save(bDto2);
 			

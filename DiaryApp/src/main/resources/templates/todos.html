@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="Codrops" />
-    <link rel="shortcut icon" th:href="@{/favicon.ico}">
+    <link rel="shortcut icon" th:href="@{/img/favicon.png}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
@@ -62,9 +62,17 @@
 			      <span class="list__item-col list__item-center hover-effect hover-effect--cursor-square" th:unless="${todo.completed}" th:text="${todo.endDate}"></span>
 			      <div class="list__item-center">
 					<a 
-						th:href="@{/endTodoT(id=${todo.id},startDate=${todo.startDate},endDate=${todo.endDate},content=${todo.content},completed=${todo.completed})}">
-						<button th:if="${todo.completed}" class="btn btn-outline-light btn">checked</button>
-						<button th:unless="${todo.completed}" class="btn btn-outline-light btn">check</button>
+						th:href="@{/endTodoT(id=${todo.id},
+									startDate=${todo.startDate},
+									endDate=${todo.endDate},
+									content=${todo.content},
+									completed=${todo.completed})}">
+						<button 
+							th:if="${todo.completed}" 
+							class="btn btn-outline-light btn">checked</button>
+						<button 
+							th:unless="${todo.completed}" 
+							class="btn btn-outline-light btn">check</button>
 					</a>
 			      </div>
 			      <a th:href="@{/update/{id}(id=${todo.id})}" class="list__item-center">
@@ -77,33 +85,6 @@
 	        </ul>
       	</section>
 	 </div>
-	        <h2 class="content__title spacer">Event Codes</h2>
-	        <ul class="list list--alt">
-	          <li class="list__item">
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">2178-04-21</span>
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">2190-07-16</span>
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">X7</span>
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">2205-12-08</span>
-	          </li>
-	          <li class="list__item">
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">2234-02-11</span>
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">2241-09-25</span>
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">A5</span>
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">2253-01-30</span>
-	          </li>
-	          <li class="list__item">
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">2301-06-17</span>
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">2312-03-05</span>
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">B9</span>
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">2320-08-14</span>
-	          </li>
-	          <li class="list__item">
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">2404-11-19</span>
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">2415-07-22</span>
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">L0</span>
-	            <span class="list__item-col hover-effect hover-effect--cursor-square">2428-05-29</span>
-	          </li>
-	        </ul>
     </main>
     <!-- JavaScript dependencies -->
     <!-- GSAP library -->

@@ -33,14 +33,14 @@ public class TodoCont {
 	
 	//할 일 추가하기
 	@PostMapping("/put")
-	public String putTodo(@Valid @ModelAttribute("todoDto") TodoDto tDto, BindingResult bindingResult, Model model) {
-//		System.out.println(tDto);
+	public String putTodo(@Valid @ModelAttribute("todoDto") TodoDto tDto,
+							BindingResult bindingResult,
+							Model model) {
 		if (bindingResult.hasErrors()) {
 			 MessageDto message = new MessageDto("Please enter new todo!", "/todos", RequestMethod.GET, null);
 			 System.out.println(message);
 			 return showMessageAndRedirect(message, model); // 유효성 검사 오류 시 오류 페이지로 리디렉션
         }
-//		System.out.println("2번째 에러");
 		if(tDto.getCompleted()==null) {
 			tDto.setCompleted(false);
 		}
@@ -82,14 +82,11 @@ public class TodoCont {
 	//종료 시간 체크 - todos
 	@GetMapping("/endTodoT")
     public String endTodoT(TodoDto tDto) {
-//        System.out.println(tDto);
         if(tDto.getEndDate()==null) {
-        	System.out.println(tDto);
         	tDto.setStartDate(tDto.getStartDate());
             tDto.setEndDate(LocalDate.now());
             tDto.setCompleted(!tDto.getCompleted());
         } else {
-        	System.out.println(tDto);
 	        tDto.setStartDate(tDto.getStartDate());
             tDto.setEndDate(null);
             tDto.setCompleted(!tDto.getCompleted());
@@ -101,7 +98,6 @@ public class TodoCont {
 	//id 값을 가져와서 data 삭제하기
 	@GetMapping("/delete/{id}")
 	public String deleteTodo(@PathVariable Integer id) {
-//		System.out.println(id);
 		tService.deleteTodo(id);
 		return "redirect:/todos";
 	}

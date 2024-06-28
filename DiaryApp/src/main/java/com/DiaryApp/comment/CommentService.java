@@ -11,8 +11,9 @@ public class CommentService {
 	@Autowired
 	CommentRepo cRepo;
 	
-	public List<CommentDto> getComments() {
-		return cRepo.findAll();
+	//board - id값 검색 
+	public List<CommentDto> getCommentsByBoardId(Integer boardId) {
+		return cRepo.findByBoardId(boardId);
 	}
 	
 	//디비에 저장
@@ -20,10 +21,6 @@ public class CommentService {
 		cRepo.save(cDto);
 	}
 	
-	//board - id값 검색 
-    public List<CommentDto> getCommentsByBoardId(Integer boardId) {
-        return cRepo.findByBoardId(boardId);
-    }
     
 	//id 값을 이용하여 todo 삭제
 	public void deleteComment(Integer id) {
