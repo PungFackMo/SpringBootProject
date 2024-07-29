@@ -26,4 +26,9 @@ public class CommentService {
 	public void deleteComment(Integer id) {
 		cRepo.deleteById(id);
 	}
+	
+	//boardId 값을 이용하여 todo 전체 삭제
+	public void deleteComments(List<CommentDto> boardId) {
+		cRepo.deleteAll(boardId);
+	}
 }

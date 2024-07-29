@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Remove;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -161,6 +162,8 @@ public class BoardCont {
 			 System.out.println(message);
 			 return showMessageAndRedirect(message, model); // 유효성
 	    }
+		List<CommentDto> boardId = cService.getCommentsByBoardId(id);
+		cService.deleteComments(boardId);
 		bService.deleteBoard(id);
 		return "redirect:/board";
 	}
